@@ -4,7 +4,7 @@ Given the scenario we’ll implement the following architecture in Azure cloud i
 
 ## Architecture diagram:
 
-![Plot View](images/architecture.jpg)
+![alt text](https://github.com/vvsivaprasadreddy/software-engineering/blob/siva-vundela/DesignChallange/images/architecture.jpg?raw=true)
 
 ## <u>Data Loading</u>
 
