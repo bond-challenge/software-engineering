@@ -1,6 +1,10 @@
 from abc import ABCMeta, abstractmethod
+import logging
 from numbers import Number
 from typing import Any, List, Optional
+
+logging.basicConfig(level=logging.INFO)
+log = logging.getLogger(__name__)
 
 
 class BaseList(metaclass=ABCMeta):
@@ -31,6 +35,43 @@ class BaseList(metaclass=ABCMeta):
         :param index: Position in the structure, starting from 0.
         """
         return self.elements[index]
+
+    def get_remove(self, index: Optional[int] = None) -> Optional[Number]:
+        """
+        Returns and removes a element from the structure based on index and remove it,
+        if index is greater than data structure length it raises IndexError,
+        if no index is specified, returns and removes the last item in the list.
+
+        :param index: Position in the structure, starting from 0.
+        """
+        if index:
+            res = self.elements.pop(index)
+        else:
+            res = self.elements.pop()
+        return res
+
+    def insert(self, index: int, element: Number):
+        """
+        Insert an element to the structure at a given index.
+
+        :param index: Position in the structure, starting from 0.
+        :param element: Element to be added to the structure.
+        """
+        self.elements.insert(index, element)
+
+    def remove(self, index: int):
+        """
+        Remove an element from the structure at a given index
+
+        :param index: Position in the structure, starting from 0.
+        """
+        del self.elements[index]
+
+    def clear(self):
+        """
+        Remove all items from the structure.
+        """
+        del self.elements[:]
 
     @abstractmethod
     def moving_average(self, last_n: Any) -> None:
