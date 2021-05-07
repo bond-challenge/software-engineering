@@ -16,7 +16,7 @@ Design a cloud data platform to process and deliver insights based on the above.
 
 # Architecture diagram:
 
-TODO
+![Design](image/architecture-v1.png)
 
 # <i>Data Ingestion</i>
 The critical part of the architected solution is a robust, fault-tolerant and easily scalable data collection for both real-time and batch integrated, using Apache Kafka for real-time transactions and Apache Airflow for integrated batches.
