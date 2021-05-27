@@ -13,6 +13,7 @@ For your submission, please submit a PR to the `main` branch of this repository.
 1. Provide a separate interface (i.e. `interface`/`trait`) with documentation for the data structure
 ### Sangeetha:
    detailed Comments are updated in the code (elements-watcher.py) to go over the interface or data structure. Please review.
+
 2. Provide an implementation for the interface
 ### Sangeetha:
    below are the implementation details:
