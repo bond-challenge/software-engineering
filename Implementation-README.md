@@ -16,6 +16,7 @@ For your submission, please submit a PR to the `main` branch of this repository.
 2. Provide an implementation for the interface
 ### Sangeetha:
    below are the implementation details:
+   
    a. Deploy to Azure
       Prerequisites:
       Install Python 3.6+
