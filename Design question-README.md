@@ -23,5 +23,21 @@ Custom data analysis and visualization tools can be used to present the data to 
 Additional technologies
 Application log data collected by Azure Monitor is stored in a Log Analytics workspace. Log Analytics queries can be used to analyze and visualize metrics and inspect log messages to identify issues within the application.
 
+In conclusion, this architecture designed to handle the requirements mentioned below.
+
+1. Handle large write volume: Billions of write events per day. 
+   Azure Event Hubs can handle Billions of write events per day.
+2. Handle large read/query volume: Millions of merchants wish to gain insight into their business. Read/Query patterns are time-series related metrics.
+   Cosmos db is time series database whihc supports this requirement
+3. Provide metrics to customers with at most one hour delay.
+   architecure is good enough to habdle real time data flow.
+4. Run with minimum downtime.
+   Azure PaaS services are HA and designed for no downtime, HA and disaster recovery
+5. Have the ability to reprocess historical data in case of bugs in the processing logic.
+   Service layer is designed in a way for having correlation between streaming and batch data which will enable reprocessing of historical data in case of issues.
+ 
+I put my thoughts and architecture on a drawing board becuase of time contraint. I will like to visio diagram as well if permitted. Overall, very good experience doing this challenge.
+
+
 
 
