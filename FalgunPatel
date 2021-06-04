@@ -1,0 +1,3 @@
+Write an interface for a data structure that can provide the moving average of the last N elements added, 
+add elements to the structure and get access to the elements. 
+Provide an efficient implementation of the interface for the data structure.
