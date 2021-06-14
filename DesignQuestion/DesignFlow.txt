@@ -1,0 +1,18 @@
+### Requirements
+1. Handle large write volume: Billions of write events per day.
+2. Handle large read/query volume: Millions of merchants wish to gain insight into their business. Read/Query patterns are time-series related metrics.
+3. Provide metrics to customers with at most one hour delay.
+4. Run with minimum downtime.
+5. Have the ability to reprocess historical data in case of bugs in the processing logic.
+
+
+#Solution
+1. Use kinesis firehose for real-time ingestion, then S3, and use Redshift as data warehouse solution.
+2. For insights and analystics, use Glue for ETL jobs from Redshift, and set up the batch job run (hourly) in AWS, then use ElasticSearch to store the ETL result, then use Quicksights to show the insights.
+
+#QA:
+1. Since kinesis can support up to hundres TPS, it's easy to scaling and the high write volume shouldn't be a problem.
+2. Use ES as a search engine and quicksight for time-series related indicators, should be fine.
+3. Lambda can be used as an event time trigger, when data loaded to redshift/S3, ES will receive notification and run the ETL jobs or hourly batch jobs to provide at most one hour delay metrics to customers.
+4. Schedule maintainance window following redshift doc: https://aws.amazon.com/premiumsupport/knowledge-center/rds-required-maintenance/
+5. Since S3 saves the archieve file, and the cost is very low to save large historical data; so if any issues, rerun the ETl jobs to backfill.
