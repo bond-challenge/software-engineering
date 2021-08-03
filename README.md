@@ -1,29 +1,35 @@
-# Bond Challenge
+###This is a README file for Implementation Details for coding question asked and comments are in line to the questions below. *
 
-## Coding Question
+##Interface: 
 
-Write an interface for a data structure that can provide the moving average of the last N elements added, add elements to the structure and get access to the elements. Provide an efficient implementation of the interface for the data structure.
+**class named DataInterface in dataInterface.py
 
-For your submission, please submit a PR to the `main` branch of this repository. 
+There are 3 abstract methods in this interface
 
-### Minimum Requirements
+1) addElement(element) - This method adds element to data structure
 
-1. Provide a separate interface (i.e. `interface`/`trait`) with documentation for the data structure
-2. Provide an implementation for the interface
-3. Provide any additional explanation about the interface and implementation in a README file.
+2) accessElement() - This method is retrives all the elements from data structure
 
-## Design Question
+3) getAverage() - This method gets the  average of last n elements
 
-A Pizza Restaurant chain “Pizza House” has more than 2000 stores across the country. Each store manages its own inventory of raw materials. Each store prepares pizzas, side dishes, etc. and sells them along with ready to eat products such as cookies, drinks, etc. The sale can happen by Point of Sale (POS) or Online. The online transactions would be flowing in real time whereas the transactions made by POS can be synced every 15 minutes in batches. They offer pick-up and deliveries by 3rd party providers. 
 
-At the head office of the restaurant chain, management is concerned with the logistics of ordering, stocking and selling products while maximizing profits as well as understanding their marketing & communications. Several promotional schemes such as temporary price reductions, ads in newspapers, displays etc., also keep rising. Considering the huge data volumes (hundreds of GB per month) and the variety of the data they have; management wants the architecture to be robust enough to handle the varying data loads. 
+##Implementation
 
-Design a cloud data platform to process and deliver insights based on the above. Please provide a high level solution design for the architecture. Feel free to choose any cloud provider you want.
+**class named ProcessData implements the interface class DataInterface
 
-### Requirements
+This class implemnets the abstract methods in DataInterface class.
 
-1. Handle large write volume: Billions of write events per day.
-2. Handle large read/query volume: Millions of merchants wish to gain insight into their business. Read/Query patterns are time-series related metrics.
-3. Provide metrics to customers with at most one hour delay.
-4. Run with minimum downtime.
-5. Have the ability to reprocess historical data in case of bugs in the processing logic.
+1) getAverage():-
+	This function calculates the avergae of last N sales events received from POS system. 
+	It handles index error, value error and zero devision error.
+	
+	Using pandas, the json events are converted into pandas dataframe and sorted by transaction date. Then avergae of last n sales value is calculated.
+
+2) getElements() 
+	This function returns all the elements added to the data structure.
+
+3) addElement() adds a number into a list data structure.
+	This function adds a POS event as a json object into a list. 
+
+
+
