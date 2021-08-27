@@ -7,8 +7,7 @@ def moving_average(series, n):
     return print(outcome)
 
 #testing array
-x = [50, 55, 36, 49, 84, 75, 101, 86, 80, 104]
+x = [87, 56, 16, 97, 45, 75, 41, 863, 90.2, 4]
 
 #testing the function
 moving_average(x,5)
-#array([47, 46.67, 56.33, 69.33, 86.67, 87.33, 89, 90])
