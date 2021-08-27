@@ -3,6 +3,7 @@ import pandas
 
 def moving_average(series, n):
 #calculate moving average
+    #the outputing numpy ndarray is the output
     outcome=pandas.Series(series).rolling(window=n).mean().iloc[n-1:].values
     return print(outcome)
 
