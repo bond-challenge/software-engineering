@@ -27,3 +27,10 @@ Design a cloud data platform to process and deliver insights based on the above.
 3. Provide metrics to customers with at most one hour delay.
 4. Run with minimum downtime.
 5. Have the ability to reprocess historical data in case of bugs in the processing logic.
+
+### Coding challenge instructions
+1. If you dont have or dont want to install pandas on your local machine, follow step#2
+2. Please install a virtualenv by running python3 -m venv venv
+2. activate venv by using . venv/bin/activate  
+3. Run pip install pandas
+4. Choose the interpreter with pandas installed
