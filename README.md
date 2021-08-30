@@ -2,28 +2,46 @@
 
 ## Coding Question
 
-Write an interface for a data structure that can provide the moving average of the last N elements added, add elements to the structure and get access to the elements. Provide an efficient implementation of the interface for the data structure.
+###Interface (dataStrucutureInterface.py) provided with:
+1. add_next() class method - Add elements to a list
+2. calculate_average() class method - Get the Moving Average parameterized with the N elements and the list
+3. access_element() class method - Access Element in the list
 
-For your submission, please submit a PR to the `main` branch of this repository. 
+####dataStructureImplemnentation.py
 
-### Minimum Requirements
+###Class MovingAverage implements MovingAverageInterface:
 
-1. Provide a separate interface (i.e. `interface`/`trait`) with documentation for the data structure
-2. Provide an implementation for the interface
-3. Provide any additional explanation about the interface and implementation in a README file.
+###Member Variables:
+list - to store the values (elements) that are added to the list
+size - to store the size of moving average
+###Member methods:
 
-## Design Question
+####add_next(self, val: int):
+Params: NA
+User inputs: 1 -> value to be added next
+Return: None
 
-A Pizza Restaurant chain “Pizza House” has more than 2000 stores across the country. Each store manages its own inventory of raw materials. Each store prepares pizzas, side dishes, etc. and sells them along with ready to eat products such as cookies, drinks, etc. The sale can happen by Point of Sale (POS) or Online. The online transactions would be flowing in real time whereas the transactions made by POS can be synced every 15 minutes in batches. They offer pick-up and deliveries by 3rd party providers. 
 
-At the head office of the restaurant chain, management is concerned with the logistics of ordering, stocking and selling products while maximizing profits as well as understanding their marketing & communications. Several promotional schemes such as temporary price reductions, ads in newspapers, displays etc., also keep rising. Considering the huge data volumes (hundreds of GB per month) and the variety of the data they have; management wants the architecture to be robust enough to handle the varying data loads. 
+####calculate_average(self, val: int) -> float
+Params: N
+User input: NA
+Return: Moving Average value
 
-Design a cloud data platform to process and deliver insights based on the above. Please provide a high level solution design for the architecture. Feel free to choose any cloud provider you want.
+Calculates the Moving average for the range of selected number of elements and Track the numbers added and size of numbers.
+e.g. for a list with 5 elements [1,2,5,10,15], and selected last N element value as 3, this function will select 3 elements from the beginning and will give the average of 3 elements per selection like [1.0,1.5,2.66,5.66,10.0] 
 
-### Requirements
+####access_element(self, n) -> int
+Params: List
+User input: 1 -> The location of the elements to be accessed
+Return: Value of elements at the given location in the list
 
-1. Handle large write volume: Billions of write events per day.
-2. Handle large read/query volume: Millions of merchants wish to gain insight into their business. Read/Query patterns are time-series related metrics.
-3. Provide metrics to customers with at most one hour delay.
-4. Run with minimum downtime.
-5. Have the ability to reprocess historical data in case of bugs in the processing logic.
+####Constraints:
+
+1 <= size <= 1000
+
+-105 <= val <= 105
+
+At most 104 calls will be made to next.
+
+####Time Complexity: O(N).
+###Space Complexity: O(N).
