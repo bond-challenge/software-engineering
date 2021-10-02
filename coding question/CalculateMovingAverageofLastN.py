@@ -24,8 +24,7 @@ class CalculateMovingAverageofLastN(Interface.Interface):
         if self._check_input_type(element) is True:
             start = 0
             while start < len(element):
-                if isinstance(element[start], int):
-                    self.array.append(element[start])
+                self.array.append(element[start])
                 start += 1
 
         return self.array
@@ -72,7 +71,7 @@ if __name__ == '__main__':
     # print(ds.get_last_N_moving_average(3))
     # print(ds.get_last_N_moving_average(5))
     # print(ds.array)
-    ds.add_element([4, 5, 6])
+    ds.add_element([4, 5, "a"])
     print(ds.array)
     # print(ds.get_last_N_moving_average(3))
     # print(ds.get_last_N_moving_average(5))
