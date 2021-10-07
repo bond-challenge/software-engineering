@@ -1,29 +1,40 @@
-# Bond Challenge
+There are three requirements specified:
 
-## Coding Question
+1. provide the moving average of the last N elements added
+2. add elements to the structure
+3. get access to the elements
 
-Write an interface for a data structure that can provide the moving average of the last N elements added, add elements to the structure and get access to the elements. Provide an efficient implementation of the interface for the data structure.
+Assumptions made:
 
-For your submission, please submit a PR to the `main` branch of this repository. 
+1. Incoming elements are all integers for the possibility to calculate average. A check_input_type() method is implemented to ensure this.
+2. The order of elements does not matter, so if 1 comes after 10, the order stays [10, 1]. No sorting is required.
+3. Accessing elements means returning the positions (or keys) of the elements and the elements themselves. Note if the elements are repeating, their respective indices will also be returned.
+4. "Moving average of the last N elements added" can differ depending on what state the current array is in. Interpretation of the requirement is illustrated below in an example:
 
-### Minimum Requirements
+    
+    time 1: array = [1, 2, 3, 4, 5], N = 2
+    
+    current_last_2_element_average = average of [4, 5] = 4.5
+    
+    time 2: array = [1, 2, 3, 4, 5, 6, 7, 8], N = 2
+    
+    current_last_2_element_average = average of [7, 8] = 7.5
+    
+Because the state of the array is changing, we will record the "N" being requested at the time, the last N elements that corresponds to, and their average.
 
-1. Provide a separate interface (i.e. `interface`/`trait`) with documentation for the data structure
-2. Provide an implementation for the interface
-3. Provide any additional explanation about the interface and implementation in a README file.
+If the requirement was "moving average of every 2 elements", then the rolling average of every 2 elements would've been calculated, so for example:
 
-## Design Question
 
-A Pizza Restaurant chain “Pizza House” has more than 2000 stores across the country. Each store manages its own inventory of raw materials. Each store prepares pizzas, side dishes, etc. and sells them along with ready to eat products such as cookies, drinks, etc. The sale can happen by Point of Sale (POS) or Online. The online transactions would be flowing in real time whereas the transactions made by POS can be synced every 15 minutes in batches. They offer pick-up and deliveries by 3rd party providers. 
+    array = [1, 2, 3, 4, 5], N = 2
 
-At the head office of the restaurant chain, management is concerned with the logistics of ordering, stocking and selling products while maximizing profits as well as understanding their marketing & communications. Several promotional schemes such as temporary price reductions, ads in newspapers, displays etc., also keep rising. Considering the huge data volumes (hundreds of GB per month) and the variety of the data they have; management wants the architecture to be robust enough to handle the varying data loads. 
+    moving_average_of_2_elements = [1.5, 2.5, 3.5, 4.5]
 
-Design a cloud data platform to process and deliver insights based on the above. Please provide a high level solution design for the architecture. Feel free to choose any cloud provider you want.
 
-### Requirements
+For ease of accessing and potential need to sort the order of elements in the future, the data type, array, is chosen.
 
-1. Handle large write volume: Billions of write events per day.
-2. Handle large read/query volume: Millions of merchants wish to gain insight into their business. Read/Query patterns are time-series related metrics.
-3. Provide metrics to customers with at most one hour delay.
-4. Run with minimum downtime.
-5. Have the ability to reprocess historical data in case of bugs in the processing logic.
+Unit testing is included to test edge cases when the data structure is not being used as intended.
+
+Anticipating future requirements:
+> * remove elements from the data structure
+> * create a timestamp for each record in the moving average snapshot (currently, the higher the index of an entry, the more recent it is)
+> * change the current method of calculating a moving average
