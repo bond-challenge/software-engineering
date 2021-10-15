@@ -12,6 +12,13 @@ For your submission, please submit a PR to the `main` branch of this repository.
 2. Provide an implementation for the interface
 3. Provide any additional explanation about the interface and implementation in a README file.
 
+Methods:
+1. getElements() : Get access to the elements of structure
+2. addElement(element) : Add element to the structure.
+3. calculateMovingAverage(lastN) : Moving average of the last 'N' elements added to the structure
+4. changeLastN(newLastN) : Change the moving window length
+
+
 ## Design Question
 
 A Pizza Restaurant chain “Pizza House” has more than 2000 stores across the country. Each store manages its own inventory of raw materials. Each store prepares pizzas, side dishes, etc. and sells them along with ready to eat products such as cookies, drinks, etc. The sale can happen by Point of Sale (POS) or Online. The online transactions would be flowing in real time whereas the transactions made by POS can be synced every 15 minutes in batches. They offer pick-up and deliveries by 3rd party providers. 
