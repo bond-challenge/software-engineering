@@ -9,7 +9,7 @@ class MovingAverageInterface:
         """Get access to the elements of structure"""
         pass
 
-    def addElements(self, element):
+    def addElement(self, element):
         """Add element to the structure.
         :param element
         """
