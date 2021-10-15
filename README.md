@@ -12,7 +12,7 @@ For your submission, please submit a PR to the `main` branch of this repository.
 2. Provide an implementation for the interface
 3. Provide any additional explanation about the interface and implementation in a README file.
 
-Methods:
+####Methods:
 1. getElements() : Get access to the elements of structure
 2. addElement(element) : Add element to the structure.
 3. calculateMovingAverage(lastN) : Moving average of the last 'N' elements added to the structure
