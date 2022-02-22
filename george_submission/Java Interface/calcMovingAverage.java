@@ -69,9 +69,7 @@ public class calcMovingAverage implements FinalDataStructure {
 	{
 		return queue.size();
 	}
-//}
-
-//public class MainApp {
+	
     public static void main(String[] args) {
         FinalDataStructure ma = new calcMovingAverage(4);
  
