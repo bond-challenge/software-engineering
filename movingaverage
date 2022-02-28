@@ -1,0 +1,61 @@
+import abc
+import pandas as pd
+
+
+class MovingAvgInterface(abc.ABC):
+    
+    '''Function to calculate moving average'''
+    @classmethod
+    def MovingAvg(cls):
+        pass
+
+    '''Adding an element to list'''
+    @classmethod
+    def AddElement(cls):
+        pass
+
+    
+    '''Accessing the element'''
+    @classmethod
+    def AccessElement(cls):
+        pass
+
+
+# create a class to implement the inteface
+class demo(MovingAvgInterface):
+    my_List = []
+
+    def MovingAvg(self):
+        
+        window_size = int(input('Specify the window size N : '))
+
+        my_list_pandas = pd.Series(demo.my_List)
+        windows = my_list_pandas.rolling(window_size)
+        moving_averages = windows.mean()
+
+        moving_averages_list = moving_averages.tolist()
+        without_nans = moving_averages_list[window_size - 1:]
+
+        print(without_nans) 
+
+
+    def AddElement(self):
+            new_element = int(input('Enter value to be added : '))
+            demo.my_List.append(new_element)
+            print(demo.my_List)
+            
+
+    def AccessElement(self):
+        try:
+            n = int(
+                input('There are ' + str(len(demo.my_List)) + ' elements, enter position of element you '
+                                                                            'want to access : '))
+            if n < 1 or n > len(demo.my_List):
+                print('No element exists at this position\n')
+            else:
+                print('Element at position ' + str(n) + ' is ' + str(demo.my_List[n])+'\n')
+        except:
+            print('\nOnly numbers are allowed') 
+
+#  create class instance
+obj_demo = demo() 
