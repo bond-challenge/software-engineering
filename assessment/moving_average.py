@@ -47,7 +47,7 @@ class MovingAverageCalculator(IMovingAverageCalculator):
     # O(n) Space
     def __init__(self, n) -> None:
         '''
-            Initialzes the class with the properties
+            Initializes the class with the properties
         '''
         self.__n: int = n
         self.__average: float = 0
