@@ -19,7 +19,7 @@ def test_accessElements():
   ma.add(4)
   ma.add(5)
   ma.add(6)
-  assert str(ma.elements) == str([3, 6])
+  assert str(ma.elements) == str([5, 6])
 
 def test_movingAverage():
   """
