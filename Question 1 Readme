@@ -1,0 +1,4 @@
+Functions:
+last_n_average(): It will take average of last n elements.
+add_n_elements(): It will append n elements in the list.
+getaccess(): It will access element at particular index.
