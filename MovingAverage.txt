@@ -1,0 +1,22 @@
+public interface MovingAverage{
+    public void addElement(double nextNum);
+    public double getMovingAvg();
+}
+
+
+Queue queue;
+double avg;
+
+def addElement(nextNum) :
+    double
+    if(queue.size() == slidingWindow) then
+         avg = (slidingWindow*avg-queue.dequeue()+nextNum)/slidingWindow
+    else
+         avg = (queue.size()*avg+nextNum)/(queue.size()+1)
+         queue.addElement(nextNum);
+    end
+end
+
+def getMovingAvg() :
+   return avg;
+end
